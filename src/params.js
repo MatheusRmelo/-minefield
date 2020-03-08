@@ -5,11 +5,11 @@ const params = {
     headerRatio: 0.15, // Proporção do painel
     difficultLevel: 0.1,
     getColunmsAmount() {
-        const width = 500
+        const width = 300
         return Math.floor(width / this.blockSize)
     },
     getRowsAmount() {
-        const totalHeight = 600
+        const totalHeight = 400
         const boardHeight = totalHeight * ( 1 - this.headerRatio)
         return Math.floor( boardHeight / this.blockSize)
     }
