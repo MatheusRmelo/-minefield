@@ -3,7 +3,15 @@ import './App.css';
 import params from './params'
 
 import MineField from './components/MineField'
-import { createMinedBoard } from './functions'
+import { 
+  createMinedBoard,
+  cloneBoard,
+  openField,
+  hadExplosion,
+  wonGame,
+  showMines
+
+} from './functions'
 class App extends Component{
 
   constructor(props){
@@ -22,9 +30,27 @@ class App extends Component{
     const rows = params.getRowsAmount()
     return {
       board: createMinedBoard(rows, cols, this.minesAmount()),
+      won: false,
+      lost: false
     }
   }
 
+  onOpenField = (row, column) => {
+    const board = cloneBoard(this.state.board)
+    openField(board, row, column)
+    const lost = hadExplosion(board)
+    const won = wonGame(board)
+
+    if ( lost ) {
+      showMines(board)
+      alert('LOSER!')
+    } 
+    if ( won ) {
+      alert('Você venceu!')
+    }
+
+    this.setState({ board, lost, won })
+  }
 
   render() {
     return (
@@ -34,7 +60,8 @@ class App extends Component{
           Tamanho da grade: { params.getRowsAmount()} x { params.getColunmsAmount()} 
         </h4>
         <div style={StyleBoard}>
-          <MineField board={this.state.board} />
+          <MineField board={this.state.board}
+              onOpenField={this.onOpenField} />
         </div>
 
       </div>

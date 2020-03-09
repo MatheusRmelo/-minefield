@@ -4,11 +4,12 @@ import Field from './Field'
 export default props => {
     const rows = props.board.map((row, r) => {
         const columns = row.map((field, c) => {
-            return <Field {...field} key={c} />
+            return <Field {...field} key={c} 
+                    onOpen = {() => props.onOpenField(r, c)}   />
         })
-        return <div key={r}>{columns}</div>
+        return <div key={r} >{columns}</div>
     })
-    return <div style={container}>{rows}></div>
+    return <div style={container}>{rows}</div>
 }
 
 

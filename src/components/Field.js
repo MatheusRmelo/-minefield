@@ -1,10 +1,9 @@
 import React from 'react'
 import params from '../params'
-import './Field.css'
 import Mine from './Mine'
 let color = null
 export default props => {
-    const { mined, opened, nearMined, exploded } = props
+    const { mined, opened, nearMines, exploded } = props
     let styleFields = 1
     let styleNormal = StyleField
     if ( opened ){
@@ -18,17 +17,17 @@ export default props => {
     if ( styleFields  === 1) styleNormal = StyleField
 
     
-    if ( nearMined > 0 ) {
-        if ( nearMined === 1) color = '#2A28D7'
-        if ( nearMined === 2) color = '#2B520F'
-        if ( nearMined > 2 && nearMined < 6) color = '#F9060A'
-        if ( nearMined > 6 ) color = '#F221A9'
+    if ( nearMines > 0 ) {
+        if ( nearMines === 1) color = '#2A28D7'
+        if ( nearMines === 2) color = '#2B520F'
+        if ( nearMines > 2 && nearMines < 6) color = '#F9060A'
+        if ( nearMines > 6 ) color = '#F221A9'
     }
     
     return (
         
-        <div style={styleNormal}>
-            { !mined && opened && nearMined > 0 ? <p style={StyleLabel, { color: color}}>{nearMined}</p> : false }
+        <div style={styleNormal} onClick={props.onOpen}>
+            { !mined && opened && nearMines > 0 ? <p style={StyleLabel, { color: color}}>{nearMines}</p> : false }
             { mined && opened ? <Mine /> : false }
         </div>
         
