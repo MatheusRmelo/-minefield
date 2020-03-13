@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import params from './params'
-
+import Header from './components/Header'
+import LevelSelection from './screens/LevelSelection'
 import MineField from './components/MineField'
 import { 
   createMinedBoard,
@@ -31,7 +32,8 @@ class App extends Component{
     return {
       board: createMinedBoard(rows, cols, this.minesAmount()),
       won: false,
-      lost: false
+      lost: false,
+      showLevelSelection: false
     }
   }
 
@@ -51,14 +53,15 @@ class App extends Component{
 
     this.setState({ board, lost, won })
   }
-
+  onLevelSelected = level => {
+    params.difficultLevel = level
+    this.setState(this.createState())
+  }
   render() {
     return (
       <div className="App">
-        <h3 className="welcome">Iniciando o Mines!</h3>
-        <h4 className="instructions">
-          Tamanho da grade: { params.getRowsAmount()} x { params.getColunmsAmount()} 
-        </h4>
+        <LevelSelection isVisible={this.state.showLevelSelection} onLevelSelected={this.onLevelSelected} onCancel={() => this.setState({ showLevelSelection: false})}/>
+        <Header onDifficultClick={()=> this.setState({ showLevelSelection: true})} onNewGame = {() => this.setState(this.createState())} />
         <div style={StyleBoard}>
           <MineField board={this.state.board}
               onOpenField={this.onOpenField} />
