@@ -11,7 +11,7 @@ export default props => {
                 </button>
 
 
-                   <span> Nivel Dificuldade: { params.difficultLevel * 10 }</span>
+                   <span  style={{color: 'black', fontSize: 20}}> Nivel Dificuldade: { params.difficultLevel * 10 }</span>
             </div>
             <button style={{padding:15}}  onClick={props.onNewGame}>
                 <i className="fa fa-lg fa-sync"></i>

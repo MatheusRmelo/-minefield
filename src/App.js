@@ -60,12 +60,15 @@ class App extends Component{
   render() {
     return (
       <div className="App">
-        <LevelSelection isVisible={this.state.showLevelSelection} onLevelSelected={this.onLevelSelected} onCancel={() => this.setState({ showLevelSelection: false})}/>
-        <Header onDifficultClick={()=> this.setState({ showLevelSelection: true})} onNewGame = {() => this.setState(this.createState())} />
-        <div style={StyleBoard}>
-          <MineField board={this.state.board}
-              onOpenField={this.onOpenField} />
-        </div>
+        <header className="App-header">
+          <LevelSelection isVisible={this.state.showLevelSelection} onLevelSelected={this.onLevelSelected} onCancel={() => this.setState({ showLevelSelection: false})}/>
+          <Header onDifficultClick={()=> this.setState({ showLevelSelection: true})} onNewGame = {() => this.setState(this.createState())} />
+          <div style={StyleBoard}>
+            <MineField board={this.state.board}
+                onOpenField={this.onOpenField} />
+          </div>
+        </header>
+        
 
       </div>
     ) 
