@@ -1,9 +1,10 @@
 import React from 'react'
-import params from '../params'
-import Mine from './Mine'
-let color = null
-export default props => {
+import params from '../../params'
+import Mine from '../Mine'
+
+export default function Field(props){
     const { mined, opened, nearMines, exploded } = props
+    let color = null
     let styleFields = 1
     let styleNormal = StyleField
     if ( opened ){

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default props => {
+export default function Mine(){
     return (
         <div style={container}>
             <div style={coreMine}></div>

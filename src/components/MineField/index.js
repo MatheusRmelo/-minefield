@@ -1,7 +1,7 @@
 import React from 'react'
-import Field from './Field'
+import Field from '../Field'
 
-export default props => {
+export default function Minefield(props){
     const rows = props.board.map((row, r) => {
         const columns = row.map((field, c) => {
             return <Field {...field} key={c} 

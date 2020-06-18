@@ -1,7 +1,7 @@
 import React from 'react'
 import 'font-awesome/css/font-awesome.css'
-import params from '../params'
-export default props => {
+import params from '../../params'
+export default function Header(props){
     return (
         <header style={styles.container}>
             <div style={styles.difficultContainer}>
@@ -36,8 +36,6 @@ const styles = {
         flexDirection: 'row',
         padding: 10,
         margin:15,
-        
-        
     }
 
 }

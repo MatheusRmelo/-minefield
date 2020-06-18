@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import params from './params'
 import Header from './components/Header'
-import LevelSelection from './screens/LevelSelection'
 import MineField from './components/MineField'
 import { 
   createMinedBoard,
