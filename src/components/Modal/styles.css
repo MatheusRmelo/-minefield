@@ -1,0 +1,46 @@
+.modal {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:1;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    background-color: #fff;
+    color:#000;
+    width: 50%;
+    height: 50%;
+    border-radius: 18px;
+}
+
+.close{
+    background-color: transparent;
+    outline: none;
+    width: 32px;
+    height: 32px;
+}
+.cart-header{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+.cart-header button {
+    background: white;
+    color: black;
+    border:0;
+    width: 8%;
+}
+.cart-header h3{
+    margin-left: 10%;
+}
+.cart-header button:hover{
+    filter:  brightness(100%);
+}

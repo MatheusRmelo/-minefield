@@ -24,7 +24,7 @@ export default props => {
 const styles = {
     container: {
         display: 'flex',
-       width: '26.5%',
+        width: '100%',
         flexDirection: 'row',
         backgroundColor: '#EEE',
         alignItems: 'center',
